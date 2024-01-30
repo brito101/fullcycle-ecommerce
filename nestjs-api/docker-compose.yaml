@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8.0.30-debian
+    container_name: mysql-nest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nest
+    ports:
+      - 3307:3306
+
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    ports:
+      - 15672:15672
+      - 5672:5672
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: pass
